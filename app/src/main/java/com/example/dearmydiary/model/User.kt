@@ -9,7 +9,15 @@ data class User(
     var phone: String,
     var address: String,
     var profileUri:  String,
+) {
+    // 여기에 생성자 추가
+    constructor(
+        id: String,
+        email: String,
+        name: String,
+        password: String,
+        phone: String,
+        address: String
+    ) : this(id, email, name, password, phone, address, "")
 
-
-
-    )
+}

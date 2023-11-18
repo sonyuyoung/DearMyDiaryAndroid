@@ -29,18 +29,29 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonInsert.setOnClickListener {
             val email = binding.userEmail.text.toString()
             val password = binding.userPwd.text.toString()
-            // 데이터를 추가해서 + 화면이동
-
+                // 만약 로그인이 성공하면
                 if (myDB?.checkLogin(email, password) == true) {
-                    // 마이페이지로 이동
+                // 사용자 정보를 가져온다
+                    val loggedInUser = myDB.getUserByEmail(email)
+                    // SharedPreferences에 사용자 정보를 저장
                     val userInfoEditor = getSharedPreferences("userInfo", MODE_PRIVATE).edit()
-                    userInfoEditor.putString("email", email)
-                    userInfoEditor.putString("name", password)
-                    userInfoEditor.apply()
-
+//                    userInfoEditor.putString("email", loggedInUser?.email)
+//                    userInfoEditor.putString("name", loggedInUser?.password)
+//                    userInfoEditor.apply()
+                    loggedInUser?.let {
+                        userInfoEditor.putString("id", it.id)
+                        userInfoEditor.putString("email", it.email)
+                        userInfoEditor.putString("name", it.name)
+                        userInfoEditor.putString("password", it.password)
+                        userInfoEditor.putString("phone", it.phone)
+                        userInfoEditor.putString("address", it.address)
+                        userInfoEditor.putString("profileUri", it.profileUri)
+                        userInfoEditor.apply()
+                    }
+                    // 마이페이지로 이동
                     val intent = Intent(this@LoginActivity, MyPageActivity::class.java)
-                    intent.putExtra("email", email)
-                    intent.putExtra("name",password)
+//                    intent.putExtra("email", email)
+//                    intent.putExtra("name",password)
                     startActivity(intent)
                     Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_LONG).show()
                 } else {
@@ -48,38 +59,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-//            if (myDB.checkLogin(email, password)) {
-//                // 로그인 성공 시 사용자 정보 가져오기
-//                val user = myDB.getUserInfoByEmailAndPassword(email, password)
-////                val pref = getSharedPreferences("userInfo2", MODE_PRIVATE)
-////                val name = pref.getString("name", "")
-////                val phone = pref.getString("phone", "")
-////                val address = pref.getString("address", "")
-////                val filePath = pref.getString("fileUrl", "")
-//
-//                if (user != null) {
-//                // userInfo에 로그인한 사용자 정보 저장
-//                    val userInfoEditor = getSharedPreferences("userInfo", MODE_PRIVATE).edit()
-//                    userInfoEditor.putString("email", email)
-//                    userInfoEditor.putString("name", user.name)
-//                    userInfoEditor.putString("phone", user.phone)
-//                    userInfoEditor.putString("address", user.address)
-//                    userInfoEditor.putString("fileUrl", user.profileUri)
-//                    userInfoEditor.apply()
-//                    // 마이페이지로 이동
-//                    val intent = Intent(this@LoginActivity, MyPageActivity::class.java)
-//                    intent.putExtra("email", email)
-//                    intent.putExtra("name", user.name)
-//
-//                // 다른 사용자 정보도 필요하다면 추가하기
-//                startActivity(intent)
-//
-//
-//                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-//            } else {
-//                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
-//            }
-//        }}}
+
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

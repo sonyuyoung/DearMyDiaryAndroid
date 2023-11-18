@@ -1,6 +1,5 @@
 package com.example.dearmydiary.SQLlight
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -74,9 +73,10 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
             val selection = "$COL_2 = ? AND $COL_4 = ?"
             val selectionArgs = arrayOf(email, password)
 
-            val count = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null).use {
-                it.count
-            }
+            val count =
+                db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null).use {
+                    it.count
+                }
 
             /*Log.d("DatabaseHelper", "CheckLogin result - Count: $count")*/
 
@@ -88,58 +88,69 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
             db.close()
         }
     }
-    @SuppressLint("Range")
-    fun getUserInfoByEmailAndPassword(email: String, password: String): User? {
+    fun getUserByEmail(email: String): User? {
         val db = this.readableDatabase
-        val columns = arrayOf(COL_1, COL_2, COL_3, COL_4, COL_5, COL_6, COL_7)
-        val selection = "$COL_2 = ? AND $COL_4 = ?"
-        val selectionArgs = arrayOf(email, password)
+        val cursor = db.rawQuery(
+            "SELECT * FROM $TABLE_NAME WHERE $COL_2 = ?",
+            arrayOf(email)
+        )
 
-        val cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null)
+        return cursor.use {
+            if (it.moveToFirst()) {
+                val columns = arrayOf("ID", "EMAIL", "NAME", "PASSWORD", "PHONE", "ADDRESS", "PROFILEURI")
 
-        try {
-            if (cursor.moveToFirst()) {
-                return User(
-                    id = cursor.getString(cursor.getColumnIndex(COL_1)),
-                    email = cursor.getString(cursor.getColumnIndex(COL_2)),
-                    name = cursor.getString(cursor.getColumnIndex(COL_3)),
-                    password = cursor.getString(cursor.getColumnIndex(COL_4)),
-                    phone = cursor.getString(cursor.getColumnIndex(COL_5)),
-                    address = cursor.getString(cursor.getColumnIndex(COL_6)),
-                    profileUri = cursor.getString(cursor.getColumnIndex(COL_7))
+                val values = columns.map { col -> it.getString(it.getColumnIndexOrThrow(col)) }
+
+                User(
+                    id = values[0], email = values[1], name = values[2], password = values[3],
+                    phone = values[4], address = values[5], profileUri = values[6]
                 )
+            } else {
+                null
             }
-        } catch (e: Exception) {
-            Log.e("DatabaseHelper", "Error fetching user info: ${e.message}", e)
-        } finally {
-            cursor.close()
-            db.close()
-        }
+        }}
+    //데이터베이스 수정하기
+    fun updateData(  id: String,
+                     email: String?,
+                     name: String?,
+                     password: String?,
+                     phone: String?,
+                     address: String?,
+                     profileUrl: String?): Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COL_2, email)
+        contentValues.put(COL_3, name)
+        contentValues.put(COL_4, password)
+        contentValues.put(COL_5, phone)
+        contentValues.put(COL_6, address)
+        contentValues.put(COL_7, profileUrl)
+        db.update(TABLE_NAME, contentValues, "ID = ?", arrayOf(id))
+        return true
+    }
+    // DatabaseHelper 클래스 내부에 업데이트 메서드 추가
+    fun updateUserInfo(email: String?, name: String?, password: String?, address: String?, phone: String?, profileUrl: String?): Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COL_3, name)
+        contentValues.put(COL_4, password)
+        contentValues.put(COL_5, phone)
+        contentValues.put(COL_6, address)
+        contentValues.put(COL_7, profileUrl)
 
-        return null
+        val whereClause = "$COL_2 = ?"
+        val whereArgs = arrayOf(email)
+
+        val result = db.update(TABLE_NAME, contentValues, whereClause, whereArgs)
+
+        return result != -1
     }
     // 데이터베이스 삭제하기
-    fun deleteData(id: String): Int {
+    fun deleteData(email: String): Int {
         val db = this.writableDatabase
-        return db.delete(TABLE_NAME, "ID = ? ", arrayOf(id))
+        return db.delete(TABLE_NAME, "EMAIL = ? ", arrayOf(email))
     }
 
-    @SuppressLint("Range")
-    fun getUserProfileImagePath(email: String?): String? {
-        val db = this.readableDatabase
-        val query = "SELECT $COL_7 FROM $TABLE_NAME WHERE $COL_2 = ?"
-
-        val cursor = db.rawQuery(query, arrayOf(email))
-        var profileImagePath: String? = null
-
-        if (cursor.moveToFirst()) {
-            profileImagePath = cursor.getString(cursor.getColumnIndex("profileUri"))
-        }
-
-        cursor.close()
-        db.close()
-        return profileImagePath
-    }
 
 
     //저장
@@ -162,3 +173,5 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
 
     }
 }
+
+
