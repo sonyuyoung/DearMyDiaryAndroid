@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "995586982306",
+    "project_id": "servelesstestworld",
+    "storage_bucket": "servelesstestworld.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995586982306:android:e1ac9701d3f9a71a1972fb",
+        "android_client_info": {
+          "package_name": "com.example.dearmydiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995586982306-md6to8rslphkmm6gelnsb99tr92jedfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dearmydiary",
+            "certificate_hash": "b5cbc6e7fd21a69e4dd88507255a6b9d37d8b242"
+          }
+        },
+        {
+          "client_id": "995586982306-umbch25okm8ie9qd5kq20eg4g1foqufn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZttPhCxxjlEAn4AFLMW1lLRnk8P0tly4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995586982306-umbch25okm8ie9qd5kq20eg4g1foqufn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
