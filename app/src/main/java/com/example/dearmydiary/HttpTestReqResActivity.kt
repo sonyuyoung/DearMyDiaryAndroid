@@ -3,6 +3,8 @@ package com.example.dearmydiary
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dearmydiary.adapter.MyAdapterRetrofit
 import com.example.dearmydiary.databinding.ActivityHttpTestReqResBinding
 import com.example.dearmydiary.model.UserListModel
 import com.example.dearmydiary.retrofit.MyApplication
@@ -58,12 +60,21 @@ class HttpTestReqResActivity : AppCompatActivity() {
         userListCall.enqueue(object : Callback<UserListModel> {
             // 익명클래스 Callback 이라는 레트로핏2에서 제공하는 인터페이스를 구현
             // 반드시 재정의해야하는 함수
+
+           // 리사이클러뷰의 레이아웃 정하는부분.
+            // 기본인 LinearLayoutManager 이용
+            // 리사이클러 어댑터연결
+            // 인자 값은 this@HttpTestReqResActivity
+            // 2번째 인자값은 데이터, 네트워크, 레트로핏2 통신으로 받아온 데이터
             override fun onResponse(call: Call<UserListModel>, response: Response<UserListModel>) {
                 // 데이터를 성공적으로 받았을때 수행되는 함수
                 // 데이터가 response 라는 응답객체에 담겨져서 body에있는내용을 유저리스트에 받음
                 val userList = response.body()
                 Log.d("syy", "userList의 값:${userList?.data}")
                 // 데이터를 성공적으로 받았다면 여기서 리사이클러 뷰 어댑터에 연결하면됨
+                val layoutManager =LinearLayoutManager(this@HttpTestReqResActivity)
+                binding.retrofitRecyclerView.layoutManager=layoutManager
+                binding.retrofitRecyclerView.adapter=MyAdapterRetrofit(this@HttpTestReqResActivity,userList?.data)
 
             }
 

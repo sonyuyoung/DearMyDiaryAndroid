@@ -100,6 +100,7 @@ class MyAdapterRetrofit(val context: Context, val datas: List<UserModel>?) :
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 // 이미지 가져오기 실패시
+            call.cancel()
             }
 
         })
