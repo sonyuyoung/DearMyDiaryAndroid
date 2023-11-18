@@ -22,7 +22,7 @@ class MyApplication : Application() {
         // .할당.할당
         get() = Retrofit.Builder()
             // REST 통신할 상대방 서버
-            .baseUrl("http://reqres.in/")
+            .baseUrl("https://reqres.in/")
             // 코틀린으로 만들었던 모델 객체를 제이슨 형태로 컨버터
             .addConverterFactory(GsonConverterFactory.create())
             .build()
