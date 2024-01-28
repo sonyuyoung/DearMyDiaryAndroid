@@ -1,6 +1,7 @@
 DearMyDiaryAndroid
 
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/a1e7eb92-a503-42a6-895d-e7bf5c340b12">
+
 <br/>
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/0bbae73c-d626-4812-91b9-1fefacd20407">
 <br/>
@@ -19,11 +20,8 @@ DearMyDiaryAndroid
 <br/>
 
 
-<br/>
-<img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/f16aab4b-d128-45fc-af9a-576a73c6b2c5">
-<br/>
 
-<img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/0c10d7ac-820f-4364-b103-cf5be73344d2"><br/>
+
 
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/70caa313-a7c6-43bc-8a7a-c4a5870933e1"><br/>
 
