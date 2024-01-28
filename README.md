@@ -1,5 +1,8 @@
-<img width="277" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/080206bb-f77f-4aac-b55f-cd7891c98794"># DearMyDiaryAndroid
+DearMyDiaryAndroid
+
 ![image](https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/f9578823-1d8e-45e1-81fb-9c20dd539e01)
+
+<img width="277" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/080206bb-f77f-4aac-b55f-cd7891c98794"># 
 
 <img width="277" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/0bbae73c-d626-4812-91b9-1fefacd20407">
 <img width="277" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/8680f479-02ba-4a7c-90db-bdf1324cccc8">
