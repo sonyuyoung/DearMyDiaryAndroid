@@ -1,5 +1,9 @@
 DearMyDiaryAndroid
 
+
+https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/4ce8468c-f5ef-4ae1-8481-26011b3a06d5
+
+
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/a1e7eb92-a503-42a6-895d-e7bf5c340b12">
 
 <br/>
