@@ -5,8 +5,8 @@ DearMyDiaryAndroid
 <br/>
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/0bbae73c-d626-4812-91b9-1fefacd20407">
 <br/>
+<img width="306" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/cab3f65a-dc74-4549-a9d1-a81debfb3e59">
 
-<img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/ed8a0148-e1b2-4c12-96e3-7cbc82ca874e">
 <br/>
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/734ad220-57f1-4be1-ac71-4bd80f5ea95e">
 
