@@ -158,8 +158,8 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
     companion object {
         // DatabaseHelper 클래스명 -> mydb
         // mydb.DATABASE_NAME -> 사용가능.
-        const val DATABASE_NAME = "CLASS4.db" // 데이터베이스 명
-        const val TABLE_NAME = "join_table4" // 테이블 명
+        const val DATABASE_NAME = "CLASS.db" // 데이터베이스 명
+        const val TABLE_NAME = "join_table" // 테이블 명
 
         // 테이블 항목
         const val COL_1 = "ID"

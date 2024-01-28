@@ -101,12 +101,12 @@ class JoinActivity : AppCompatActivity() {
 
         }
 
-        binding.galleryBtn.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.type = "image/*"
-            requestGalleryLauncher.launch(intent)
-
-        }
+//        binding.galleryBtn.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//            intent.type = "image/*"
+//            requestGalleryLauncher.launch(intent)
+//
+//        }
 
 
         val requestCameraFileLauncher = registerForActivityResult(

@@ -1,5 +1,6 @@
 package com.example.dearmydiary
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -56,6 +57,19 @@ class MyUpdateDataActivity : AppCompatActivity() {
 
                 // 업데이트 성공
                 Toast.makeText(this, "사용자 정보가 업데이트되었습니다.", Toast.LENGTH_SHORT).show()
+                // MainActivity로 정보를 전달하는 인텐트 생성
+                val mainIntent = Intent(this, MainActivity::class.java)
+                mainIntent.putExtra("updatedEmail", updatedEmail)
+                mainIntent.putExtra("updatedName", updatedName)
+                mainIntent.putExtra("updatedPassword", updatedPassword)
+                mainIntent.putExtra("updatedAddress", updatedAddress)
+                mainIntent.putExtra("updatedPhone", updatedPhone)
+                mainIntent.putExtra("updatedProfileUrl", imagePath)
+
+                // MainActivity로 이동
+                startActivity(mainIntent)
+
+
             } else {
                 // 업데이트 실패
                 Toast.makeText(this, "사용자 정보 업데이트에 실패했습니다.", Toast.LENGTH_SHORT).show()

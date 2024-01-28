@@ -42,7 +42,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/nexonbold"
             android:paddingBottom="20dp"
-            android:text="Sign Up"
+            android:text="Sign In"
             android:textColor="#FFC107"
             android:textSize="35sp"
             android:textStyle="bold"
