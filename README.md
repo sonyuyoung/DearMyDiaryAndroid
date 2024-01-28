@@ -25,5 +25,6 @@ DearMyDiaryAndroid
 
 <img width="300" alt="image" src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/70caa313-a7c6-43bc-8a7a-c4a5870933e1"><br/>
 
-![1](https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/a2748659-449e-4062-9f77-dc57b80af377)
+<img width="300"  src="https://github.com/sonyuyoung/DearMyDiaryAndroid/assets/139303925/a2748659-449e-4062-9f77-dc57b80af377">
+
 
